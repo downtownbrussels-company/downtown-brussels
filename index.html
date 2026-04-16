@@ -1,0 +1,1293 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="DownTown Brussels – The Temple of Belgian Beers & Sports Events. Trappist, abbey and craft beers, live sports screenings, and premium bar experience in the heart of Brussels." />
+  <meta property="og:title" content="DownTown Brussels | Belgian Beers & Sports Bar" />
+  <meta property="og:description"
+    content="Experience the finest Belgian beers and watch live sports in Brussels. Football, tennis, F1, rugby – all at DownTown." />
+  <title>DownTown Brussels | Belgian Beers & Sports Bar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Rajdhani:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="shortcut icon" href="favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+  <link rel="manifest" href="site.webmanifest" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- ========== NAVIGATION ========== -->
+  <header id="navbar" class="navbar">
+
+    <!-- Top gold accent line -->
+    <div class="nav-top-line"></div>
+
+    <!-- Shimmer sweep overlay (purely decorative) -->
+    <div class="nav-shimmer" aria-hidden="true"></div>
+
+    <div class="nav-container">
+
+      <!-- LEFT: Logo image -->
+      <a href="#" class="logo logo-img-wrap" id="logo-link" aria-label="DownTown home">
+        <img src="images/logo.png" alt="DownTown Brussels" class="nav-logo-img" />
+        <span class="logo-city brussels">Brussels</span>
+      </a>
+
+      <!-- CENTER: Nav links -->
+      <nav class="nav-links" id="nav-links" aria-label="Main navigation">
+        <a href="#about" class="nav-link" data-section="about" data-i18n="nav_about">About</a>
+        <a href="#menu" class="nav-link" data-section="menu" data-i18n="nav_menu">Menu</a>
+        <a href="#events" class="nav-link" data-section="events" data-i18n="nav_events">Events</a>
+        <a href="#faq" class="nav-link" data-section="faq" data-i18n="nav_faq">FAQ</a>
+        <a href="#contact" class="nav-link" data-section="contact" data-i18n="nav_contact">Contact</a>
+      </nav>
+
+      <!-- RIGHT: Lang + Reserve CTA + Hamburger -->
+      <div class="nav-right">
+
+        <!-- Language Selector -->
+        <div class="lang-selector" id="lang-selector">
+          <button class="lang-btn active" data-lang="en" id="lang-en">EN</button>
+          <button class="lang-btn" data-lang="fr" id="lang-fr">FR</button>
+          <button class="lang-btn" data-lang="nl" id="lang-nl">NL</button>
+        </div>
+
+        <!-- Desktop RÉSERVER CTA -->
+        <a href="#reservations" class="nav-reserve-btn" id="nav-reserve-btn">
+          <svg class="reserve-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+            <line x1="16" y1="2" x2="16" y2="6" />
+            <line x1="8" y1="2" x2="8" y2="6" />
+            <line x1="3" y1="10" x2="21" y2="10" />
+          </svg>
+          <span data-i18n="nav_reserve_btn">RESERVATION</span>
+        </a>
+
+        <!-- Hamburger -->
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+          <span class="ham-line"></span>
+          <span class="ham-line"></span>
+          <span class="ham-line"></span>
+        </button>
+
+      </div>
+    </div>
+
+    <!-- Bottom glow line -->
+    <div class="nav-bottom-glow"></div>
+  </header>
+
+  <!-- Mobile Drawer (slides in from right) -->
+  <div class="mobile-drawer" id="mobile-menu" aria-hidden="true" role="dialog" aria-label="Mobile navigation">
+    <div class="drawer-header">
+      <div class="drawer-logo">
+        <img src="images/logo.png" alt="DownTown Brussels" class="drawer-logo-img" />
+      </div>
+      <button class="drawer-close" id="drawer-close" aria-label="Close menu">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <div class="drawer-divider"></div>
+
+    <nav class="drawer-nav">
+      <a href="#about" class="drawer-link" data-section="about">
+        <span data-i18n="nav_about">About</span>
+      </a>
+      <a href="#menu" class="drawer-link" data-section="menu">
+        <span data-i18n="nav_menu">Menu</span>
+      </a>
+      <a href="#events" class="drawer-link" data-section="events">
+        <span data-i18n="nav_events">Events</span>
+      </a>
+      <a href="#faq" class="drawer-link" data-section="faq">
+        <span data-i18n="nav_faq">FAQ</span>
+      </a>
+      <a href="#contact" class="drawer-link" data-section="contact">
+        <span data-i18n="nav_contact">Contact</span>
+      </a>
+
+    </nav>
+
+    <div class="drawer-divider"></div>
+
+    <a href="#reservations" class="drawer-cta" data-i18n="nav_reserve_cta">
+      <span class="reserve-icon">📅</span>
+      RESERVATION
+    </a>
+
+    <div class="drawer-lang">
+      <button class="lang-btn active" data-lang="en">EN</button>
+      <button class="lang-btn" data-lang="fr">FR</button>
+      <button class="lang-btn" data-lang="nl">NL</button>
+    </div>
+
+    <div class="drawer-footer">
+      <p data-i18n="drawer_addr">Rue Henri Maus 15, 1000 Brussels (Place de la Bourse)</p>
+      <p data-i18n="drawer_hours">Mon–Sun · 12:00 — 01:00</p>
+    </div>
+  </div>
+
+  <!-- Backdrop overlay -->
+  <div class="nav-backdrop" id="nav-backdrop"></div>
+
+  <main>
+
+    <!-- ========== 1. HERO SECTION ========== -->
+    <section class="hero" id="hero">
+      <div class="hero-overlay"></div>
+      <div class="hero-particles" id="hero-particles"></div>
+      <div class="hero-content">
+        <!-- <div class="hero-badge" data-i18n="hero_badge">Brussels #1 Sports Bar</div> -->
+        <h1 class="hero-title" data-i18n="hero_title">The Temple of Belgian Beers &amp; Sports Events</h1>
+        <p class="hero-subtitle" data-i18n="hero_subtitle">Discover our exclusive selection of Trappist, abbey, and
+          Belgian craft beers. The perfect place for sports fans — from football and tennis to Formula 1 and rugby.</p>
+        <div class="hero-btns">
+          <a href="#menu" class="btn btn-primary" data-i18n="hero_btn1">Discover Our Beers</a>
+          <a href="#reservations" class="btn btn-outline" data-i18n="hero_btn2">Reserve Your Table</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-num">25+</span>
+            <span class="stat-label" data-i18n="stat_beers">Belgian Beers</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-num">20+</span>
+            <span class="stat-label" data-i18n="stat_screens">Live Screens</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-num">7/7</span>
+            <span class="stat-label" data-i18n="stat_open">Open Daily</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-scroll">
+        <div class="scroll-indicator">
+          <span></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 1.5 SELECTIONS SECTION ========== -->
+    <section class="section selections-section" id="selections">
+      <!-- Ambient background glow dots -->
+      <div class="sel-ambient" aria-hidden="true">
+        <div class="sel-orb sel-orb-1"></div>
+        <div class="sel-orb sel-orb-2"></div>
+        <div class="sel-orb sel-orb-3"></div>
+      </div>
+
+      <div class="container">
+        <!-- Section Header -->
+        <div class="section-header">
+          <span class="section-tag" data-i18n="sel_tag">What We Offer</span>
+          <h2 class="section-title" data-i18n="sel_title">Our Selections</h2>
+          <div class="title-line"></div>
+          <p class="section-subtitle" data-i18n="sel_subtitle">Three reasons to make DownTown your go-to Brussels
+            destination.</p>
+        </div>
+
+        <!-- 3 Cards -->
+        <div class="sel-grid">
+
+          <!-- Card 1 — Belgian Treasures -->
+          <article class="sel-card reveal" id="sel-card-1">
+            <div class="sel-card-img-wrap">
+              <img src="images/IMG_1016.JPG" alt="Belgian beer selection" class="sel-card-img" loading="lazy" />
+              <div class="sel-card-img-overlay"></div>
+            </div>
+            <div class="sel-card-body">
+
+              <h3 class="sel-card-title" data-i18n="sel1_title">Belgian Treasures</h3>
+              <div class="sel-card-rule"></div>
+              <p class="sel-card-text" data-i18n="sel1_text">Trappist, Dubbels, Tripels, Lambics, Witbiers — an
+                authentic collection for true beer lovers.</p>
+              <a href="#tasting" class="sel-card-link" data-i18n="sel1_cta">
+                Explore Selection
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" />
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Card 2 — Supporter Zone -->
+          <article class="sel-card sel-card-featured reveal" id="sel-card-2">
+            <div class="sel-card-img-wrap">
+              <img src="images/IMG_1017.JPG" alt="Supporter zone with live screens" class="sel-card-img"
+                loading="lazy" />
+              <div class="sel-card-img-overlay sel-card-img-overlay-blue"></div>
+            </div>
+            <div class="sel-card-body">
+
+              <h3 class="sel-card-title" data-i18n="sel2_title">Supporter Zone</h3>
+              <div class="sel-card-rule sel-card-rule-blue"></div>
+              <p class="sel-card-text" data-i18n="sel2_text">Watch major sports events live on big screens all year
+                round. Enjoy an electric atmosphere with friends.</p>
+              <a href="#events" class="sel-card-link sel-card-link-blue" data-i18n="sel2_cta">
+                See Live Events
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" />
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Card 3 — Rare & Craft -->
+          <article class="sel-card reveal" id="sel-card-3">
+            <div class="sel-card-img-wrap">
+              <img src="images/IMG_0661.JPG" alt="Rare craft beer bottles" class="sel-card-img" loading="lazy" />
+              <div class="sel-card-img-overlay"></div>
+            </div>
+            <div class="sel-card-body">
+
+              <h3 class="sel-card-title" data-i18n="sel3_title">Rare &amp; Craft Beers</h3>
+              <div class="sel-card-rule"></div>
+              <p class="sel-card-text" data-i18n="sel3_text">Discover exclusive selections, barrel-aged beers, and
+                limited brews for a unique tasting experience.</p>
+              <a href="#menu" class="sel-card-link" data-i18n="sel3_cta">
+                Discover More
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" />
+                </svg>
+              </a>
+            </div>
+          </article>
+
+        </div><!-- /.sel-grid -->
+      </div><!-- /.container -->
+    </section>
+
+
+
+    <!-- ========== 4. FEATURES SECTION — Premium Reference Layout ========== -->
+    <section class="section features-section-v2" id="features">
+      <div class="features-bg-overlay" style="background-image:url('images/IMG_0616.JPG')"></div>
+
+      <div class="container features-v2-container">
+        <div class="features-v2-grid">
+
+          <!-- Left Content: Vertical Cards -->
+          <div class="features-v2-list">
+
+            <article class="feat-v2-card glass-card-ref reveal" id="feat-v2-1">
+              <span class="feat-v2-num" aria-hidden="true">01</span>
+              <div class="feat-v2-info">
+                <h3 class="feat-v2-title" data-i18n="feat1_title">Authentic Belgian Beer</h3>
+                <p class="feat-v2-desc" data-i18n="feat1_desc">50+ carefully selected Belgian beers including rare
+                  Trappist brews, abbey ales, and seasonal craft specials.</p>
+              </div>
+            </article>
+
+            <article class="feat-v2-card glass-card-ref reveal" id="feat-v2-2">
+              <span class="feat-v2-num" aria-hidden="true">02</span>
+              <div class="feat-v2-info">
+                <h3 class="feat-v2-title" data-i18n="feat2_title">Supporter Zone</h3>
+                <p class="feat-v2-desc" data-i18n="feat2_desc">Dedicated fan zones with team colors and atmosphere that
+                  makes every match feel like being in the stadium.</p>
+              </div>
+            </article>
+
+            <article class="feat-v2-card glass-card-ref reveal" id="feat-v2-3">
+              <span class="feat-v2-num" aria-hidden="true">03</span>
+              <div class="feat-v2-info">
+                <h3 class="feat-v2-title" data-i18n="feat3_title">Game Bar</h3>
+                <p class="feat-v2-desc" data-i18n="feat3_desc">10+ HD screens, premium sound system and live coverage of
+                  all major sporting events worldwide.</p>
+              </div>
+            </article>
+
+            <article class="feat-v2-card glass-card-ref reveal" id="feat-v2-4">
+              <span class="feat-v2-num" aria-hidden="true">04</span>
+              <div class="feat-v2-info">
+                <h3 class="feat-v2-title" data-i18n="feat4_title">Complete Experience</h3>
+                <p class="feat-v2-desc" data-i18n="feat4_desc">Handcrafted cocktails, premium shots, curated wines and
+                  delicious bar bites for an unforgettable evening.</p>
+              </div>
+            </article>
+
+          </div>
+
+          <!-- Right Content: Product Image -->
+          <div class="features-v2-product reveal">
+            <div class="product-img-shadow"></div>
+            <img src="images/IMG_2432.JPG" alt="Stella Artois beer lineup" class="feat-v2-img" loading="lazy" />
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 5. MENU SECTION ========== -->
+    <section class="section menu-section" id="menu">
+      <div class="menu-atmo menu-atmo-left" style="background-image:url('images/IMG_0659.PNG')"></div>
+      <div class="menu-atmo menu-atmo-right" style="background-image:url('images/IMG_0660.PNG')"></div>
+      <div class="menu-atmo-blur menu-atmo-blur-one" style="background-image:url('images/IMG_0610.PNG')"></div>
+      <div class="menu-atmo-blur menu-atmo-blur-two" style="background-image:url('images/IMG_0653.PNG')"></div>
+      <div class="menu-container">
+        <div class="section-header">
+          <span class="section-tag" data-i18n="menu_tag">Drink Menu</span>
+          <h2 class="section-title" data-i18n="menu_title">Our Menu</h2>
+          <div class="title-line"></div>
+          <p class="menu-intro-text reveal" data-i18n="menuDescription">
+            Enjoy an extensive drinks menu at DownTown Brussels, featuring Belgian beers on tap, creative cocktails, and
+            top-quality spirits.
+          </p>
+        </div>
+
+        <!-- Top Row: 4 Columns -->
+        <div class="menu-row-top menu-row-top--accordion">
+          <!-- 1. Beers (Split) -->
+          <div class="menu-column menu-accordion-item">
+            <button class="menu-accordion-trigger" type="button" aria-expanded="false" aria-controls="menu-panel-beers">
+              <span class="menu-outer-title menu-outer-title--accordion" data-i18n="menu_beers">Beers</span>
+              <span class="menu-accordion-icon" aria-hidden="true"></span>
+            </button>
+            <div class="menu-v4-card menu-accordion-panel" id="menu-panel-beers" hidden>
+              <div class="cocktail-sub-title" style="margin-top:0;">Draft Beer (33cl / 50cl)</div>
+              <ul class="menu-v4-list menu-v4-list--abv">
+                <li><span>Jupiler</span> <span class="item-meta"></span> <span class="price">4.00 / 5.00 €</span>
+                </li>
+                <li><span>Stella Artois</span> <span class="item-meta"></span> <span class="price">4.50 / 5.50
+                    €</span></li>
+                <li><span>Leffe Blonde</span> <span class="item-meta"></span> <span class="price">5.50 / 6.50
+                    €</span></li>
+                <li><span>Triple Karmeliet</span> <span class="item-meta"></span> <span class="price">5.50 / 8.00
+                    €</span></li>
+                <li><span>Kwak Amber</span> <span class="item-meta"></span> <span class="price">5.50 / 7.00
+                    €</span></li>
+                <li><span>Hoegaarden Rose</span> <span class="item-meta"></span> <span class="price">5.50 / 7.00
+                    €</span></li>
+                <li><span>IPA Goose</span> <span class="item-meta"></span> <span class="price">5.50 / 7.00
+                    €</span></li>
+                <li><span>Victoria</span> <span class="item-meta"></span> <span class="price">5.50 / 7.50 €</span>
+                </li>
+                <li><span>Hoegaarden</span> <span class="item-meta"></span> <span class="price">5.50 / 7.00
+                    €</span></li>
+              </ul>
+
+              <div class="cocktail-sub-title">Bottled Beer</div>
+              <ul class="menu-v4-list menu-v4-list--abv">
+                <li><span>Chouffe</span> <span class="item-meta"></span> <span class="price">5.50 €</span></li>
+                <li><span>Chouffe Cherry</span> <span class="item-meta"></span> <span class="price">5.50 €</span>
+                </li>
+                <li><span>Desperados</span> <span class="item-meta"></span> <span class="price">5.50 €</span></li>
+                <li><span>Corona Extra</span> <span class="item-meta"></span> <span class="price">5.50 €</span>
+                </li>
+                <li><span>Duvel</span> <span class="item-meta"></span> <span class="price">5.50 €</span></li>
+                <li><span>Kwak Rouge</span> <span class="item-meta"></span> <span class="price">5.20 €</span></li>
+                <li><span>Kriek</span> <span class="item-meta"></span> <span class="price">4.50 €</span></li>
+                <li><span>Kasteel Rouge</span> <span class="item-meta"></span> <span class="price">5.50 €</span>
+                </li>
+                <li><span>Hoegaarden Rose</span> <span class="item-meta"></span> <span class="price">5.00 €</span>
+                </li>
+                <li><span>Chimay Bleue</span> <span class="item-meta"></span> <span class="price">6.00 €</span>
+                </li>
+                <li><span>Orval</span> <span class="item-meta"></span> <span class="price">6.50 €</span></li>
+                <li><span>Westmale</span> <span class="item-meta"></span> <span class="price">6.00 €</span></li>
+                <li><span>Leffe Ruby</span> <span class="item-meta"></span> <span class="price">6.00 €</span></li>
+              </ul>
+
+              <div class="cocktail-sub-title">Beer 0%</div>
+              <ul class="menu-v4-list">
+                <li><span>Corona Cero</span> <span class="price">5.00 €</span></li>
+                <li><span>Stella Artois</span> <span class="price">4.50 €</span></li>
+                <li><span>Hoegaarden (classic/rose)</span> <span class="price">4.50 €</span></li>
+              </ul>
+
+            </div>
+          </div>
+
+          <!-- 2. Cocktails -->
+          <div class="menu-column menu-accordion-item">
+            <button class="menu-accordion-trigger" type="button" aria-expanded="false"
+              aria-controls="menu-panel-cocktails">
+              <span class="menu-outer-title menu-outer-title--accordion" data-i18n="menu_cocktails">Cocktails</span>
+              <span class="menu-accordion-icon" aria-hidden="true"></span>
+            </button>
+            <div class="menu-v4-card menu-accordion-panel" id="menu-panel-cocktails" hidden>
+              <div class="cocktail-sub-title" style="margin-top:0;">Cocktails Classics (10.00 €)</div>
+              <ul class="menu-v4-list">
+                <li><span class="name-wrap"><span>Margarita</span><span class="item-meta">Classic, blue or strawberry.
+                      Tequila, lemon juice, triple sec, cane syrup / blue curacao / strawberry syrup.</span></span><span
+                    class="price">10.00 €</span></li>
+                <li><span class="name-wrap"><span>Paloma</span><span class="item-meta">Tequila, lemon juice, cane syrup,
+                      grapefruit juice, sparkling water.</span></span><span class="price">10.00 €</span></li>
+                <li><span class="name-wrap"><span>Tequila Sunrise</span><span class="item-meta">Tequila, triple sec,
+                      lemon juice, orange juice, grenadine.</span></span><span class="price">10.00 €</span></li>
+                <li><span class="name-wrap"><span>Mojito</span><span class="item-meta">Classic or strawberry. White rum,
+                      lime, fresh mint, cane syrup, sparkling water / strawberry syrup.</span></span><span
+                    class="price">10.00 €</span></li>
+                <li><span class="name-wrap"><span>Daiquiri</span><span class="item-meta">Classic or strawberry. White
+                      rum, lime, cane syrup / strawberry syrup.</span></span><span class="price">10.00 €</span></li>
+                <li><span class="name-wrap"><span>Pina Colada</span><span class="item-meta">White rum, Malibu, cream,
+                      pineapple juice, cane syrup.</span></span><span class="price">10.00 €</span></li>
+                <li><span class="name-wrap"><span>Dark &amp; Stormy</span><span class="item-meta">Spiced rum, lime, cane
+                      syrup, ginger beer.</span></span><span class="price">10.00 €</span></li>
+                <li><span class="name-wrap"><span>Cosmopolitan</span><span class="item-meta">Vodka, triple sec,
+                      cranberry juice, lemon juice, cane syrup.</span></span><span class="price">10.00 €</span></li>
+                <li><span class="name-wrap"><span>Espresso Martini</span><span class="item-meta">Vodka, Kahlua,
+                      espresso, cane syrup.</span></span><span class="price">10.00 €</span></li>
+                <li><span class="name-wrap"><span>Sex on the Beach</span><span class="item-meta">Vodka, peach syrup,
+                      lemon juice, orange juice, cranberry juice.</span></span><span class="price">10.00 €</span></li>
+                <li><span class="name-wrap"><span>Porn Star Martini</span><span class="item-meta">Vodka, Passoa, passion
+                      fruit syrup, lemon juice.</span></span><span class="price">10.00 €</span></li>
+                <li><span class="name-wrap"><span>Caipiroska</span><span class="item-meta">Classic or strawberry. Vodka,
+                      lime, cane syrup / strawberry syrup.</span></span><span class="price">10.00 €</span></li>
+                <li><span class="name-wrap"><span>Moscow Mule</span><span class="item-meta">Vodka, lime, cane syrup,
+                      ginger beer.</span></span><span class="price">10.00 €</span></li>
+                <li><span class="name-wrap"><span>London Mule</span><span class="item-meta">Gin, lime, cane syrup,
+                      ginger beer.</span></span><span class="price">10.00 €</span></li>
+              </ul>
+
+              <div class="cocktail-sub-title">Cocktails Signatures</div>
+              <ul class="menu-v4-list">
+                <li><span class="name-wrap"><span>Red Pirate</span><span class="item-meta">Spiced rum, triple sec, lemon
+                      juice, grenadine, apple juice.</span></span><span class="price">10.00 €</span></li>
+                <li><span class="name-wrap"><span>Hurricane</span><span class="item-meta">White rum, spiced rum, passion
+                      fruit syrup, lemon juice, grenadine, orange juice.</span></span><span class="price">10.00 €</span>
+                </li>
+                <li><span class="name-wrap"><span>Pink Pantera</span><span class="item-meta">Spiced rum, Amaretto, lemon
+                      juice, cream, cherry juice.</span></span><span class="price">10.00 €</span></li>
+                <li><span class="name-wrap"><span>Mojito Tropical</span><span class="item-meta">White rum, lime, blue
+                      curacao, sparkling water, pineapple juice, fresh mint.</span></span><span class="price">10.00
+                    €</span></li>
+                <li><span class="name-wrap"><span>Tiramisu</span><span class="item-meta">Vodka, Baileys, Kahlua,
+                      Amaretto, espresso.</span></span><span class="price">11.00 €</span></li>
+                <li><span class="name-wrap"><span>Red Lion</span><span class="item-meta">Gin, triple sec, lemon juice,
+                      grenadine, orange juice.</span></span><span class="price">10.00 €</span></li>
+              </ul>
+
+              <div class="cocktail-sub-title">Cocktails Premium</div>
+              <ul class="menu-v4-list">
+                <li><span class="name-wrap"><span>Black/White Russian</span><span class="item-meta">Vodka, Kahlua /
+                      cream.</span></span><span class="price">10.00 €</span></li>
+                <li><span class="name-wrap"><span>Blue Frog</span><span class="item-meta">Vodka, white rum, tequila,
+                      gin, blue curacao, lemon juice, cane syrup, Redbull.</span></span><span class="price">12.00
+                    €</span></li>
+                <li><span class="name-wrap"><span>Long Island Ice Tea</span><span class="item-meta">Vodka, white rum,
+                      tequila, gin, triple sec, lemon juice, cane syrup, ice tea.</span></span><span class="price">12.00
+                    €</span></li>
+                <li><span class="name-wrap"><span>Negroni</span><span class="item-meta">Gin, Martini Rosso,
+                      Campari.</span></span><span class="price">11.00 €</span></li>
+                <li><span class="name-wrap"><span>Adios Motherf*cker</span><span class="item-meta">Vodka, white rum,
+                      tequila, gin, blue curacao, lemon juice, cane syrup, Sprite.</span></span><span
+                    class="price">12.00 €</span></li>
+                <li><span class="name-wrap"><span>DownTown</span><span class="item-meta">The bartender's
+                      secret.</span></span><span class="price">12.00 €</span></li>
+              </ul>
+
+              <div class="cocktail-sub-title">Spritz</div>
+              <ul class="menu-v4-list">
+                <li><span>Aperol Spritz</span> <span class="price">8.00 €</span></li>
+                <li><span>Kir Vin Blanc</span> <span class="price">8.00 €</span></li>
+                <li><span>Kir Royal</span> <span class="price">8.00 €</span></li>
+                <li><span>Bellini</span> <span class="price">8.00 €</span></li>
+              </ul>
+
+              <div class="cocktail-sub-title">Mocktails (8.00 €)</div>
+              <ul class="menu-v4-list">
+                <li><span class="name-wrap"><span>Cherry Spritz</span><span class="item-meta">Cherry juice, lemon juice,
+                      Sprite.</span></span><span class="price">8.00 €</span></li>
+                <li><span class="name-wrap"><span>San Francisco</span><span class="item-meta">Orange juice, grapefruit
+                      juice, lemon juice, grenadine syrup.</span></span><span class="price">8.00 €</span></li>
+                <li><span class="name-wrap"><span>Bora Bora</span><span class="item-meta">Pineapple juice, passion fruit
+                      juice, lemon juice, grenadine syrup.</span></span><span class="price">8.00 €</span></li>
+                <li><span class="name-wrap"><span>Mango Fizz</span><span class="item-meta">Mango juice, orange juice,
+                      sparkling water.</span></span><span class="price">8.00 €</span></li>
+                <li><span class="name-wrap"><span>Green Apple Mule</span><span class="item-meta">Apple juice, ginger
+                      beer, lemon juice.</span></span><span class="price">8.00 €</span></li>
+                <li><span class="name-wrap"><span>Tropical Breeze</span><span class="item-meta">Pineapple juice, orange
+                      juice, mango juice, grenadine syrup.</span></span><span class="price">8.00 €</span></li>
+                <li><span class="name-wrap"><span>Pina Colada</span><span class="item-meta">Pineapple juice, coconut
+                      syrup, cream.</span></span><span class="price">8.00 €</span></li>
+                <li><span class="name-wrap"><span>Bellini</span><span class="item-meta">Peach syrup, lemon juice,
+                      Sprite.</span></span><span class="price">8.00 €</span></li>
+                <li><span class="name-wrap"><span>Cranberry Fizz</span><span class="item-meta">Cranberry juice, lemon
+                      juice, sparkling water.</span></span><span class="price">8.00 €</span></li>
+                <li><span class="name-wrap"><span>Hugo</span><span class="item-meta">Elderflower syrup, lime juice,
+                      mint, sparkling water.</span></span><span class="price">8.00 €</span></li>
+                <li><span class="name-wrap"><span>Shirley Temple</span><span class="item-meta">Sprite, cherry juice,
+                      grenadine syrup, lemon juice.</span></span><span class="price">8.00 €</span></li>
+                <li><span class="name-wrap"><span>Shirley Temple Tropic</span><span class="item-meta">Sprite, cherry
+                      juice, pineapple juice.</span></span><span class="price">8.00 €</span></li>
+                <li><span class="name-wrap"><span>Virgin Mojito</span><span class="item-meta">Mint, lime, lemon juice,
+                      cane sugar, sparkling water.</span></span><span class="price">8.00 €</span></li>
+                <li><span class="name-wrap"><span>Virgin Mojito Fraise</span><span class="item-meta">Mint, strawberry,
+                      lime, lemon juice, cane sugar, sparkling water.</span></span><span class="price">8.00 €</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- 3. Spirits -->
+          <div class="menu-column menu-accordion-item">
+            <button class="menu-accordion-trigger" type="button" aria-expanded="false"
+              aria-controls="menu-panel-spirits">
+              <span class="menu-outer-title menu-outer-title--accordion" data-i18n="menu_alcohol">Spirits</span>
+              <span class="menu-accordion-icon" aria-hidden="true"></span>
+            </button>
+            <div class="menu-v4-card menu-accordion-panel" id="menu-panel-spirits" hidden>
+              <div class="cocktail-sub-title" style="margin-top:0;">Alcohols <span class="menu-label-small"
+                  data-i18n="menu_label_bottle_5cl">Glass/Bottle</span></div>
+              <ul class="menu-v4-list menu-v4-list--alcohols">
+                <li><span>Bacardi Blanc</span> <span class="item-meta"></span> <span class="price">8.00€/80€</span></li>
+                <li><span>Captain Morgan</span> <span class="item-meta"></span> <span class="price">8.00€/80€</span>
+                </li>
+                <li><span>Vodka Eristoff</span> <span class="item-meta"></span> <span class="price">8.00€/70€</span>
+                </li>
+                <li><span>Gin Gordon's</span> <span class="item-meta"></span>
+                  <span class="price">8.00€/70€</span>
+                </li>
+                <li><span>Jack Daniels</span> <span class="item-meta"></span>
+                  <span class="price">9.00€/90€</span>
+                </li>
+                <li><span>Jack Daniels Honey</span> <span class="item-meta"></span> <span
+                    class="price">10.00€/100€</span></li>
+                <li><span>William Lawson's</span> <span class="item-meta"></span> <span class="price">8.00€/80€</span>
+                </li>
+                <li><span>Red Label</span> <span class="item-meta"></span>
+                  <span class="price">9.00€/90€</span>
+                </li>
+                <li><span>Chivas</span> <span class="item-meta"></span> <span class="price">10.00€/100€</span>
+                </li>
+                <li><span>Passoa</span> <span class="item-meta"></span> <span class="price">7.00€/70€</span>
+                </li>
+                <li><span>Malibu</span> <span class="item-meta"></span> <span class="price">7.00€/70€</span>
+                </li>
+                <li><span>Vermouth Blanco/Rosso</span> <span class="item-meta"></span> <span class="price">6.00€</span>
+                </li>
+                <li><span>Baileys</span> <span class="item-meta"></span> <span class="price">7.00€</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- 4. Shots -->
+          <div class="menu-column menu-accordion-item">
+            <button class="menu-accordion-trigger" type="button" aria-expanded="false" aria-controls="menu-panel-shots">
+              <span class="menu-outer-title menu-outer-title--accordion" data-i18n="menu_shots">Shots</span>
+              <span class="menu-accordion-icon" aria-hidden="true"></span>
+            </button>
+            <div class="menu-v4-card menu-accordion-panel" id="menu-panel-shots" hidden>
+              <div class="cocktail-sub-title" style="margin-top:0;">Shots</div>
+              <ul class="menu-v4-list">
+                <li><span>Tequila</span> <span class="price">4.50 €</span></li>
+                <li><span>Vodka</span> <span class="price">4.50 €</span></li>
+                <li><span>Get 27</span> <span class="price">4.00 €</span></li>
+                <li><span>Orgasme</span> <span class="price">4.00 €</span></li>
+                <li><span>Jagermeister</span> <span class="price">4.00 €</span></li>
+                <li><span>Baileys</span> <span class="price">4.00 €</span></li>
+                <li><span>Passoa</span> <span class="price">4.00 €</span></li>
+                <li><span>Malibu</span> <span class="price">4.00 €</span></li>
+                <li><span>Barbie Shot</span> <span class="price">4.50 €</span></li>
+                <li><span>Green Baileys</span> <span class="price">4.50 €</span></li>
+                <li><span>Madeleine</span> <span class="price">4.50 €</span></li>
+                <li><span>Blue Mike Sandwich</span> <span class="price">4.50 €</span></li>
+                <li><span>Amaretto</span> <span class="price">4.00 €</span></li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="menu-row-secondary menu-row-secondary--accordion">
+          <!-- Softs -->
+          <div class="menu-column menu-inline-accordion menu-row-secondary__softs">
+            <button class="menu-accordion-trigger menu-accordion-trigger--inline" type="button" aria-expanded="false"
+              aria-controls="menu-panel-softs">
+              <span class="menu-outer-title menu-outer-title--accordion" data-i18n="menu_softs">Softs</span>
+              <span class="menu-accordion-icon" aria-hidden="true"></span>
+            </button>
+            <div class="menu-v4-card menu-inline-accordion-panel" id="menu-panel-softs" hidden>
+              <ul class="menu-v4-list">
+                <li><span>Coca Cola</span> <span class="price">3.00 €</span></li>
+                <li><span>Fanta Orange</span> <span class="price">3.00 €</span></li>
+                <li><span>Sprite</span> <span class="price">3.00 €</span></li>
+                <li><span>Fuze Tea</span> <span class="price">3.50 €</span></li>
+                <li><span>Ginger Beer</span> <span class="price">4.00 €</span></li>
+                <li><span>Water (still/sparkling)</span> <span class="price">3.00 €</span></li>
+                <li><span>Royal Bliss</span> <span class="price">3.00 €</span></li>
+                <li><span>Minute Made</span> <span class="price">3.50 €</span></li>
+                <li><span>Red Bull</span> <span class="price">4.00 €</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Happy Hours trigger in middle -->
+          <div class="menu-column menu-inline-accordion menu-row-secondary__happy happy-hours-v4 happy-hours-v4--row">
+            <button class="menu-accordion-trigger menu-accordion-trigger--inline" type="button" aria-expanded="false"
+              aria-controls="happy-hours-panel">
+              <span class="menu-outer-title menu-outer-title--accordion happy-hours-title">Happy Hours</span>
+              <span class="menu-accordion-icon" aria-hidden="true"></span>
+            </button>
+          </div>
+
+          <!-- Cider -->
+          <div class="menu-column menu-inline-accordion menu-row-secondary__cider">
+            <button class="menu-accordion-trigger menu-accordion-trigger--inline" type="button" aria-expanded="false"
+              aria-controls="menu-panel-cider">
+              <span class="menu-outer-title menu-outer-title--accordion" data-i18n="menu_cider">Cider</span>
+              <span class="menu-accordion-icon" aria-hidden="true"></span>
+            </button>
+            <div class="menu-v4-card menu-inline-accordion-panel" id="menu-panel-cider" hidden>
+              <ul class="menu-v4-list">
+                <li><span>Somersby Mango</span> <span class="price">5.50 €</span></li>
+                <li><span>Somersby Apple</span> <span class="price">5.50 €</span></li>
+                <li><span>Somersby Blackberry</span> <span class="price">5.50 €</span></li>
+                <li><span>Ruwet Classic</span> <span class="price">4.00 €</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="happy-hours-v4 happy-hours-v4--panel">
+            <div class="happy-hours-grid menu-inline-accordion-panel" id="happy-hours-panel" hidden>
+
+              <div class="menu-column">
+                <div class="menu-v4-card">
+                  <div class="cocktail-sub-title" style="margin-top:0;">Happy Hours Alcohol <span
+                      class="happy-hours-badge">14:00 - 22:00</span></div>
+
+                  <div class="cocktail-sub-title">Cocktails <span class="happy-hours-badge">1+1 for
+                      15&nbsp;&euro;</span>
+                  </div>
+                  <ul class="menu-v4-list happy-hours-list--split">
+                    <li><span>Sex on the Beach</span> <span class="price">2 for 12&nbsp;&euro;</span></li>
+                    <li><span>Tequila Sunrise</span> <span class="price">2 for 12&nbsp;&euro;</span></li>
+                    <li><span>Mojito</span></li>
+                    <li><span>Daiquiri</span></li>
+                    <li><span>Margarita</span></li>
+                    <li><span>Pi&ntilde;a Colada</span></li>
+                    <li><span>Caipiroska</span></li>
+                    <li><span>Cosmopolitan</span></li>
+                    <li><span>Porn Star Martini</span></li>
+                    <li><span>Moscow Mule</span></li>
+                    <li><span>Mocktails N/A</span> <span class="price">2 for 11&nbsp;&euro;</span></li>
+                  </ul>
+
+                  <div class="cocktail-sub-title">Spritz <span class="happy-hours-badge">1+1 for 12&nbsp;&euro;</span>
+                  </div>
+                  <ul class="menu-v4-list">
+                    <li><span>Aperol Spritz</span></li>
+                    <li><span>Kir Vin Blanc</span></li>
+                    <li><span>Kir Royal</span></li>
+                    <li><span>Hugo</span></li>
+                    <li><span>Bellini</span></li>
+                  </ul>
+
+                  <div class="cocktail-sub-title">Alcohols</div>
+                  <ul class="menu-v4-list">
+                    <li><span>Vodka Sprite</span> <span class="price">1+1 for 15&nbsp;&euro;</span></li>
+                    <li><span>Rhum Coca</span> <span class="price">1+1 for 15&nbsp;&euro;</span></li>
+                    <li><span>Whiskey Coca</span> <span class="price">1+1 for 15&nbsp;&euro;</span></li>
+                    <li><span>Gin Tonic</span> <span class="price">1+1 for 15&nbsp;&euro;</span></li>
+                  </ul>
+
+                  <div class="cocktail-sub-title">Shots</div>
+                  <ul class="menu-v4-list">
+                    <li><span>3 Shots</span> <span class="price">10&nbsp;&euro;</span></li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="menu-column">
+                <div class="menu-v4-card">
+                  <div class="cocktail-sub-title" style="margin-top:0;">Happy Hours Beer <span
+                      class="happy-hours-badge">14:00 - 22:00</span></div>
+
+                  <div class="cocktail-sub-title">Beer Draft (50cl)</div>
+                  <ul class="menu-v4-list happy-hours-list--split">
+                    <li><span class="name-wrap"><span>Jupiler</span><span class="item-meta">Happy Hours 14:00 -
+                          00:00</span></span> <span class="price">3.00&nbsp;&euro;</span></li>
+                    <li><span class="name-wrap"><span>Stella Artois</span><span class="item-meta">Happy Hours 14:00 -
+                          00:00</span></span> <span class="price">3.50&nbsp;&euro;</span></li>
+                    <li><span>Leffe Blonde</span> <span class="price">5.50&nbsp;&euro;</span></li>
+                    <li><span>Tripel Karmeliet</span> <span class="price">6.50&nbsp;&euro;</span></li>
+                    <li><span>Kwak Amber</span> <span class="price">5.50&nbsp;&euro;</span></li>
+                    <li><span>Hoegaarden Rose</span> <span class="price">5.00&nbsp;&euro;</span></li>
+                    <li><span>IPA Goose</span> <span class="price">5.50&nbsp;&euro;</span></li>
+                    <li><span>Victoria</span> <span class="price">5.50&nbsp;&euro;</span></li>
+                  </ul>
+
+                  <div class="cocktail-sub-title">Bottled Beer <span class="happy-hours-badge">3 for
+                      12&nbsp;&euro;</span>
+                  </div>
+                  <ul class="menu-v4-list happy-hours-list--split">
+                    <li><span>Corona Extra</span></li>
+                    <li><span>Chouffe</span></li>
+                    <li><span>Chouffe Cherry</span></li>
+                    <li><span>Desperados</span></li>
+                    <li><span>Duvel</span></li>
+                    <li><span>Hoegaarden Rose</span></li>
+                    <li><span>Kwak Rouge</span></li>
+                    <li><span>Kriek</span></li>
+                    <li><span>Kasteel Rouge</span></li>
+                  </ul>
+
+                  <div class="cocktail-sub-title">Snacks</div>
+                  <ul class="menu-v4-list">
+                    <li><span>Nachos + sauce</span> <span class="price">5.00&nbsp;&euro;</span></li>
+                  </ul>
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Row: Wines + Sparkling + Champagnes + Hot Drinks -->
+        <div class="wine-row-v4">
+
+          <div class="menu-column menu-inline-accordion menu-inline-accordion--wine">
+            <button class="menu-accordion-trigger menu-accordion-trigger--inline menu-accordion-trigger--wine-tight"
+              type="button" aria-expanded="false" aria-controls="wine-wines-panel">
+              <span class="menu-outer-title menu-outer-title--accordion" data-i18n="menu_wines_label">Wines</span>
+              <span class="menu-accordion-icon" aria-hidden="true"></span>
+            </button>
+            <div class="menu-inline-accordion-panel" id="wine-wines-panel" hidden>
+              <div class="menu-v4-card wine-v4-card">
+                <div class="cocktail-sub-title" style="margin-top:0;">
+                  <span data-i18n="menu_label_bottle_glass">GLASS/BOTTLE</span>
+                </div>
+                <ul class="menu-v4-list">
+                  <li><span>Moscato</span> <span class="item-meta"></span> <span class="price">6.00€/25€</span>
+                  </li>
+                  <li><span>Cava</span> <span class="item-meta"></span> <span class="price">7.00€/30€</span>
+                  </li>
+                  <li><span>Royal de Jarras Blanc</span> <span class="item-meta"></span> <span
+                      class="price">7.00€/30€</span></li>
+                  <li><span>Royal de Jarras Ros&eacute;</span> <span class="item-meta"></span> <span
+                      class="price">7.00€/30€</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+
+
+
+          <div class="menu-column menu-inline-accordion menu-inline-accordion--wine">
+            <button class="menu-accordion-trigger menu-accordion-trigger--inline" type="button" aria-expanded="false"
+              aria-controls="wine-sparkling-panel">
+              <span class="menu-outer-title menu-outer-title--accordion" data-i18n="menu_sparkling_wines">Sparkling
+                Wines</span>
+              <span class="menu-accordion-icon" aria-hidden="true"></span>
+            </button>
+            <div class="menu-inline-accordion-panel" id="wine-sparkling-panel" hidden>
+              <div class="menu-v4-card wine-v4-card">
+                <div class="cocktail-sub-title" style="margin-top:0;">
+                  <span data-i18n="menu_label_bottle_glass">GLASS/BOTTLE</span>
+                </div>
+                <ul class="menu-v4-list">
+                  <li><span>Red Wine</span> <span class="item-meta"></span> <span class="price">6.00€/25€</span>
+                  </li>
+                  <li><span>White Wine</span> <span class="item-meta"></span> <span class="price">6.00€/25€</span>
+                  </li>
+                  <li><span>Ros&eacute; Wine</span> <span class="item-meta"></span> <span class="price">6.00€/25€</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="menu-column menu-inline-accordion menu-inline-accordion--wine">
+            <button class="menu-accordion-trigger menu-accordion-trigger--inline menu-accordion-trigger--wine-tight"
+              type="button" aria-expanded="false" aria-controls="wine-champagnes-panel">
+              <span class="menu-outer-title menu-outer-title--accordion" data-i18n="menu_champagnes">Champagnes</span>
+              <span class="menu-accordion-icon" aria-hidden="true"></span>
+            </button>
+            <div class="menu-inline-accordion-panel" id="wine-champagnes-panel" hidden>
+              <div class="menu-v4-card wine-v4-card">
+                <ul class="menu-v4-list">
+                  <li><span>Heidsieck Monopole Silver</span> <span class="price"><span
+                        data-i18n="menu_term_bottle">Bottle</span> 70.00 €</span></li>
+                  <li><span>Pommery</span> <span class="price"><span data-i18n="menu_term_bottle">Bottle</span> 100.00
+                      €</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-column menu-inline-accordion menu-inline-accordion--wine">
+            <button class="menu-accordion-trigger menu-accordion-trigger--inline menu-accordion-trigger--wine-tight"
+              type="button" aria-expanded="false" aria-controls="wine-hot-drinks-panel">
+              <span class="menu-outer-title menu-outer-title--accordion" data-i18n="menu_hot_drinks">Hot Drinks</span>
+              <span class="menu-accordion-icon" aria-hidden="true"></span>
+            </button>
+            <div class="menu-inline-accordion-panel" id="wine-hot-drinks-panel" hidden>
+              <div class="menu-v4-card">
+                <ul class="menu-v4-list">
+                  <li><span>Tea</span> <span class="item-meta">(black/green, mint, lemon)</span> <span
+                      class="price">3.50
+                      €</span></li>
+                  <li><span>Coffee / Espresso</span> <span class="price">3.00 €</span></li>
+                  <li><span>Cappuccino</span> <span class="price">4.00 €</span></li>
+                  <li><span>Latte / Latte Frappe</span> <span class="price">4.50 €</span></li>
+                  <li><span>Italian / Irish Coffee</span> <span class="price">8.00 €</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-atmo-strip" aria-hidden="true">
+      <div class="section-atmo-strip__img" style="background-image:url('images/IMG_0655.JPG')"></div>
+    </div>
+
+    <!-- ========== 7. EVENTS SECTION ========== -->
+    <section class="section events-section" id="events"
+      style="background-image:url('images/Gemini_Generated_Image_vo30vjvo30vjvo30\ \(1\).png');background-size:cover;background-position:center 38%;">
+      <div class="events-atmo events-atmo-left" style="background-image:url('images/IMG_0653.PNG')"></div>
+      <div class="events-atmo events-atmo-right" style="background-image:url('images/IMG_0649.JPG')"></div>
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag" data-i18n="events_tag">Live on our Screens</span>
+          <h2 class="section-title" data-i18n="events_title">Events</h2>
+          <div class="title-line"></div>
+          <p class="events-intro-text reveal" data-i18n="eventsDescription">
+            Looking for the best place to watch live sports in Brussels? Watch live football, Champions League and major
+            sporting events at DownTown Brussels.
+          </p>
+          <p class="events-subtitle" id="events-competition-header" data-i18n="events_subtitle">UEFA Champions League
+            2026 — Quarter Finals</p>
+        </div>
+
+        <div class="events-date-header" id="events-date-label-container">
+          <span class="ev-date-icon">📅</span>
+          <span class="ev-date-label" id="active-date-label"></span>
+        </div>
+
+        <div class="matches-grid" id="matches-grid">
+          <!-- Populated by JS -->
+        </div>
+
+        <div class="live-banner" id="live-banner" style="display:none;">
+          <div class="live-dot"></div>
+          <span data-i18n="live_now">Live right now at DownTown</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 8. ABOUT SECTION ========== -->
+    <section class="section about-section" id="about">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-text">
+            <span class="section-tag" data-i18n="about_tag">Our Story</span>
+            <h2 class="section-title about-title" data-i18n="about_title">About DownTown</h2>
+            <div class="title-line"></div>
+            <p class="about-desc" data-i18n="about_p1">DownTown Brussels is a vibrant sport bar in the heart of Brussels
+              city centre, just steps away from Place de la Bourse and the iconic Grand Place.</p>
+            <p class="about-desc" data-i18n="about_p2">Watch all major live games on big screens, from football to
+              tennis and rugby, in a lively atmosphere, with Belgian beer on tap and great music to complete the
+              experience.</p>
+            <!-- <p class="about-desc" data-i18n="about_p3">Whether you're here to catch the big game on our HD screens,
+              share a tasting board with friends, or simply unwind with a cold Belgian after work — DownTown is your
+              place.</p> -->
+          </div>
+          <!-- About photo column -->
+          <div class="about-photo-col">
+            <img src="images/about.jpg" alt="DownTown Brussels pub interior" class="about-photo" />
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section gallery-section" id="gallery">
+      <div class="gallery-section__glow gallery-section__glow--blue" aria-hidden="true"></div>
+      <div class="gallery-section__glow gallery-section__glow--gold" aria-hidden="true"></div>
+      <div class="gallery-shell">
+        <div class="section-header gallery-header reveal">
+          <span class="section-tag" data-i18n="gallery_tag">Inside DownTown</span>
+          <h2 class="section-title" data-i18n="gallery_title">Gallery</h2>
+          <div class="title-line"></div>
+          <p class="section-subtitle gallery-subtitle" data-i18n="gallery_subtitle">
+            Step into the glow of DownTown through signature cocktails, polished bar details, and the late-night mood
+            that makes every round feel cinematic.
+          </p>
+        </div>
+
+        <div class="gallery-grid" aria-label="DownTown photo gallery">
+          <button class="gallery-item" type="button" data-gallery-index="0">
+            <img src="images/IMG_1012.JPG" alt="Stella Artois crowned with foam in a clean golden pour"
+              loading="lazy" />
+            <span class="gallery-item__overlay" aria-hidden="true"></span>
+          </button>
+
+          <button class="gallery-item" type="button" data-gallery-index="1">
+            <img src="images/IMG_0609.PNG" alt="Backlit Bacardi bottles glowing behind the DownTown bar"
+              loading="lazy" />
+            <span class="gallery-item__overlay" aria-hidden="true"></span>
+          </button>
+
+          <button class="gallery-item" type="button" data-gallery-index="2">
+            <img src="images/IMG_0608.PNG" alt="Cream poured over an iced signature cocktail" loading="lazy" />
+            <span class="gallery-item__overlay" aria-hidden="true"></span>
+          </button>
+
+          <button class="gallery-item" type="button" data-gallery-index="3">
+            <img src="images/about.jpg" alt="DownTown main bar area with hanging glasses and lounge seating"
+              loading="lazy" />
+            <span class="gallery-item__overlay" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+
+
+
+    <!-- ========== 11. FAQ SECTION ========== -->
+    <section class="section faq-section" id="faq">
+      <div class="faq-bg" style="background-image:url('images/IMG_0611.PNG')"></div>
+      <div class="container faq-container">
+        <div class="section-header faq-header reveal">
+          <span class="section-tag" data-i18n="faq_tag">Frequently Asked Questions</span>
+          <h2 class="section-title" data-i18n="faq_title">FAQ</h2>
+          <div class="title-line"></div>
+          <p class="section-subtitle faq-subtitle" data-i18n="faq_subtitle">Everything you may want to know before your
+            next night at DownTown.</p>
+        </div>
+
+        <div class="faq-lifestyle faq-lifestyle-main reveal" aria-hidden="true">
+          <div class="faq-lifestyle-card">
+            <img src="images/IMG_0652.PNG" alt="" class="faq-lifestyle-img" loading="lazy" />
+          </div>
+        </div>
+        <div class="faq-list" id="faq-list" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- ========== 11.5 FIND US / LOCATION SECTION ========== -->
+    <section class="section location-section" id="location">
+      <div class="container">
+        <div class="location-grid">
+          <div class="location-content reveal">
+            <!-- <span class="section-tag" data-i18n="loc_tag">Find Us</span> -->
+            <h2 class="section-title" data-i18n="loc_title">Find Us</h2>
+            <div class="title-line location-title-line"></div>
+            <p class="section-subtitle location-subtitle" data-i18n="loc_subtitle">Visit us in the heart of Brussels.
+            </p>
+            <p class="location-text" data-i18n="loc_text">DownTown Brussels is ideally located just steps away from
+              Place de la Bourse and the Grand Place. Easily accessible, our venue is the perfect destination to enjoy
+              premium drinks, a vibrant atmosphere, and live sports.</p>
+            <div class="location-address">
+              <span class="loc-addr-icon">📍</span>
+              <span data-i18n="loc_addr">Rue Henri Maus 15, 1000 Brussels (Place de la Bourse)</span>
+            </div>
+            <a href="https://maps.app.goo.gl/ox25ZcjcwgecF8hZ8" target="_blank" class="btn btn-outline"
+              data-i18n="loc_cta">Open in Google Maps</a>
+          </div>
+
+          <div class="location-map-wrap reveal">
+            <div class="map-container glass-card">
+              <iframe id="location-map-embed"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d353.4505665363378!2d4.349797889180206!3d50.84766077609295!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c3c53bbe38d92f%3A0x16e3ba0bfac7711a!2sDowntown%20Brussels!5e0!3m2!1sen!2sen!4v1776081560829!5m2!1sen!2sen"
+                width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade" title="DownTown Brussels Location Map"></iframe>
+              <div class="map-glow"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div class="gallery-lightbox" id="gallery-lightbox" aria-hidden="true">
+    <div class="gallery-lightbox__backdrop" data-gallery-close></div>
+    <div class="gallery-lightbox__dialog" role="dialog" aria-modal="true" aria-labelledby="gallery-lightbox-title">
+      <button class="gallery-lightbox__close" id="gallery-lightbox-close" type="button" aria-label="Close gallery">
+        <span aria-hidden="true">&times;</span>
+      </button>
+
+      <button class="gallery-lightbox__nav gallery-lightbox__nav--prev" id="gallery-lightbox-prev" type="button"
+        aria-label="Previous image">
+        <span aria-hidden="true">&#10094;</span>
+      </button>
+
+      <div class="gallery-lightbox__content">
+        <img id="gallery-lightbox-image" src="" alt="" />
+        <div class="gallery-lightbox__meta">
+          <p class="gallery-lightbox__title" id="gallery-lightbox-title"></p>
+          <span class="gallery-lightbox__counter" id="gallery-lightbox-counter"></span>
+        </div>
+      </div>
+
+      <button class="gallery-lightbox__nav gallery-lightbox__nav--next" id="gallery-lightbox-next" type="button"
+        aria-label="Next image">
+        <span aria-hidden="true">&#10095;</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="reservation-modal" id="reservation-modal" aria-hidden="true">
+    <div class="reservation-modal__backdrop" data-modal-close></div>
+    <div class="reservation-modal__dialog glass-card" role="dialog" aria-modal="true"
+      aria-labelledby="reservation-modal-title">
+      <button class="reservation-modal__close" id="reservation-modal-close" aria-label="Close reservation form">
+        <span aria-hidden="true">&times;</span>
+      </button>
+
+      <div class="reservation-modal__header">
+        <span class="section-tag reservation-modal__tag">Private Booking</span>
+        <h2 class="section-title reservation-modal__title" id="reservation-modal-title" data-i18n="res_modal_title">
+          Reserve Your Table
+        </h2>
+        <p class="reservation-modal__subtitle" data-i18n="res_modal_subtitle">
+          Secure your preferred table, tasting, or group evening and let our team prepare a seamless DownTown
+          experience.
+        </p>
+      </div>
+
+      <form class="res-form reservation-modal__form" id="res-form" novalidate>
+        <div class="reservation-form-grid">
+          <div class="form-group">
+            <label for="res-name" data-i18n="form_name">Full Name</label>
+            <input type="text" id="res-name" name="name" autocomplete="name"
+              data-i18n-placeholder="form_name_placeholder" placeholder="Your name" required />
+          </div>
+
+          <div class="form-group">
+            <label for="res-email" data-i18n="form_email">Email</label>
+            <input type="email" id="res-email" name="email" autocomplete="email"
+              data-i18n-placeholder="form_email_placeholder" placeholder="you@example.com" />
+          </div>
+
+          <div class="form-group">
+            <label for="res-phone" data-i18n="form_phone">Phone</label>
+            <input type="tel" id="res-phone" name="phone" autocomplete="tel"
+              data-i18n-placeholder="form_phone_placeholder" placeholder="+32 ........" required />
+          </div>
+
+          <div class="form-group">
+            <label for="res-when" data-i18n="form_when">Date / Time</label>
+            <div class="reservation-datetime-field">
+              <button type="button" class="reservation-datetime-trigger" id="res-when-trigger"
+                aria-label="Choose date and time">
+                <span class="reservation-datetime-value reservation-datetime-value--placeholder"
+                  id="res-when-display">Select date and time</span>
+                <span class="reservation-datetime-icon" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                    <line x1="16" y1="2" x2="16" y2="6" />
+                    <line x1="8" y1="2" x2="8" y2="6" />
+                    <line x1="3" y1="10" x2="21" y2="10" />
+                  </svg>
+                </span>
+              </button>
+              <input type="datetime-local" id="res-when" name="datetime" lang="en-GB" required
+                class="reservation-datetime-native" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="res-occasion" data-i18n="form_select">Reservation Type</label>
+            <select id="res-occasion" name="reservation_type" required>
+              <option value="Reserve a Table" data-reservation-kind="table" data-i18n="form_select_opt_dinner">
+                Reserve a Table</option>
+              <option value="Private Event" data-reservation-kind="event" data-i18n="form_select_opt_private">Private
+                Event</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="res-guests" data-i18n="form_people">Amount of People</label>
+            <input type="number" id="res-guests" name="guests" min="1" max="30" step="1"
+              data-i18n-placeholder="form_people_placeholder" placeholder="2" required />
+          </div>
+
+          <div class="form-group form-group--full">
+            <label for="res-notes" data-i18n="form_notes_extended">Extra Information</label>
+            <textarea id="res-notes" name="comment" rows="4" data-i18n-placeholder="form_notes_placeholder"
+              placeholder="Tell us about your preferences, occasion, or any special requests."></textarea>
+          </div>
+
+          <div class="reservation-honeypot" aria-hidden="true">
+            <label for="res-company">Company</label>
+            <input type="text" id="res-company" name="company" tabindex="-1" autocomplete="off" />
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block reservation-modal__submit" data-i18n="form_submit_modal">
+          Reserve
+        </button>
+        <div class="form-success" id="form-success" hidden role="status" aria-live="polite">
+          Reservation confirmed! See you soon at DownTown!
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ========== 12. FOOTER ========== -->
+  <footer class="footer" id="contact">
+
+    <!-- Decorative top glow bar -->
+    <div class="footer-glow-top" aria-hidden="true"></div>
+
+    <div class="footer-main">
+      <div class="container">
+        <div class="footer-grid">
+
+          <!-- Brand -->
+          <div class="footer-brand">
+            <a href="#" class="footer-logo-link" aria-label="DownTown home">
+              <img src="images/logo.png" alt="DownTown Brussels" class="footer-logo-img" />
+            </a>
+            <p class="footer-tagline" data-i18n="footer_tagline">
+              DownTown Brussels is a vibrant pub in the heart of the city, offering Belgian beers, live sports, and a
+              unique nightlife atmosphere.
+            </p>
+            <!-- Social icons -->
+            <div class="footer-socials">
+              <a href="https://www.facebook.com/profile.php?id=61572787606810&mibextid=wwXIfr&rdid=v8I5DRKQZRpxIrmk&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F18czqWkBhQ%2F%3Fmibextid%3DwwXIfr#"
+                class="social-link" aria-label="Facebook">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                </svg>
+              </a>
+              <a href="https://www.instagram.com/downtownbrussels?igsh=MXN0anBqeGUzMmNiag%3D%3D" class="social-link"
+                aria-label="Instagram">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                  <circle cx="12" cy="12" r="4" />
+                  <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+                </svg>
+              </a>
+              <a href="https://www.tiktok.com/@downtownbrussels?_r=1&_t=ZS-95E4R8I0uge" class="social-link"
+                aria-label="TikTok">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path
+                    d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.77 0 2.89 2.89 0 0 1 2.58-2.87V9.75a6.34 6.34 0 0 0-2.58 12.18 6.34 6.34 0 0 0 6.64-10.42V7.18a8.3 8.3 0 0 0 6.55 3.12V6.69Z" />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Navigation -->
+          <div class="footer-col">
+            <h4 class="footer-col-title" data-i18n="footer_nav_title">Navigation</h4>
+            <ul class="footer-nav-list">
+              <li><a href="#" class="footer-nav-link" data-i18n="footer_nav_home">Home</a></li>
+              <li><a href="#menu" class="footer-nav-link" data-i18n="footer_nav_menu">Menu</a></li>
+              <li><a href="#events" class="footer-nav-link" data-i18n="footer_nav_events">Events</a></li>
+              <li><a href="#about" class="footer-nav-link" data-i18n="footer_nav_about">About </a></li>
+            </ul>
+          </div>
+
+          <!-- Contact -->
+          <div class="footer-col">
+            <h4 class="footer-col-title" data-i18n="footer_contact_title">Contact</h4>
+            <ul class="footer-info-list">
+              <li>
+                <span class="fi-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z" />
+                    <circle cx="12" cy="10" r="3" />
+                  </svg>
+                </span>
+                <span><span data-i18n="footer_addr_line1">Rue Henri Maus 15,</span><br><span
+                    data-i18n="footer_addr_line2">1000 Brussels (Place de la Bourse)</span></span>
+              </li>
+              <li>
+                <span class="fi-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path
+                      d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.62 4.45 2 2 0 0 1 3.59 2.25h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                  </svg>
+                </span>
+                <a href="tel:+32493377777">+32 493 37 77 77</a>
+              </li>
+              <li>
+                <span class="fi-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                    <polyline points="22,6 12,13 2,6" />
+                  </svg>
+                </span>
+                <a href="mailto:downtownbrussels@gmail.com">downtownbrussels@gmail.com</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Opening Hours -->
+          <div class="footer-col">
+            <h4 class="footer-col-title" data-i18n="footer_hours_title">Opening Hours</h4>
+            <ul class="footer-info-list">
+              <li class="footer-hours-days-row">
+                <span class="fi-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="12" r="10" />
+                    <polyline points="12 6 12 12 16 14" />
+                  </svg>
+                </span>
+                <span class="footer-hours-days">
+                  <span class="footer-hours-days-main" data-i18n="footer_hours">Monday - Sunday</span>
+                  <span class="footer-hours-days-extra">7/7</span>
+                </span>
+              </li>
+              <li class="hours-time-row">
+                <span class="hours-badge">12:00</span>
+                <span class="hours-dash">—</span>
+                <span class="hours-badge">01:00</span>
+              </li>
+            </ul>
+            <!-- Reserve CTA inside footer -->
+            <a href="#reservations" class="footer-cta-btn" data-i18n="footer_cta">Reservation</a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="footer-bottom">
+      <div class="footer-bottom-glow" aria-hidden="true"></div>
+      <div class="container">
+        <div class="footer-bottom-inner">
+          <p class="footer-copy">&copy; 2026 DownTown Brussels. <span data-i18n="footer_rights">All rights
+              reserved.</span></p>
+          <div class="footer-bottom-divider" aria-hidden="true"></div>
+          <p class="footer-made" data-i18n="footer_made">Crafted with ❤️ in Brussels</p>
+        </div>
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top">↑</button>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
