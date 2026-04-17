@@ -6,15 +6,7 @@
 'use strict';
 
 const RESERVATION_CONFIG = window.RESERVATION_CONFIG || {
-  restaurantEmail: 'downtownbrussels@gmail.com',
-  email: {
-    endpoint: 'https://api.web3forms.com/submit',
-    accessKey: 'c3f55ae8-b370-4f5b-a1f8-f4aa4dcb5e9f'
-  },
-  telegram: {
-    botToken: '8649049980:AAEp5ef2_u4luNM4966JXD0NsS1n6JfYH5Y',
-    chatId: '-5199999590'
-  },
+  apiEndpoint: '/api/reservations',
   antiSpam: {
     minimumFillTimeMs: 4000,
     cooldownMs: 60000,
@@ -1447,18 +1439,7 @@ function setReservationCooldown() {
 }
 
 function isReservationConfigReady() {
-  const emailKey = RESERVATION_CONFIG.email?.accessKey || '';
-  const botToken = RESERVATION_CONFIG.telegram?.botToken || '';
-  const chatId = RESERVATION_CONFIG.telegram?.chatId || '';
-
-  return (
-    emailKey &&
-    botToken &&
-    chatId &&
-    !emailKey.startsWith('PASTE_') &&
-    !botToken.startsWith('PASTE_') &&
-    !chatId.startsWith('PASTE_')
-  );
+  return Boolean(RESERVATION_CONFIG.apiEndpoint);
 }
 
 function getReservationPayload() {
@@ -1587,52 +1568,21 @@ async function fetchReservationJson(url, options = {}) {
   }
 }
 
-async function sendReservationEmail(payload, honeypotValue) {
-  const data = await fetchReservationJson(RESERVATION_CONFIG.email.endpoint, {
+async function sendReservationRequest(payload, honeypotValue) {
+  const data = await fetchReservationJson(RESERVATION_CONFIG.apiEndpoint, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
       Accept: 'application/json'
     },
     body: JSON.stringify({
-      access_key: RESERVATION_CONFIG.email.accessKey,
-      subject: `New reservation for ${payload.date} at ${payload.time}`,
-      from_name: 'DownTown Reservation Form',
-      name: payload.name,
-      email: payload.email || RESERVATION_CONFIG.restaurantEmail,
-      replyto: payload.email || RESERVATION_CONFIG.restaurantEmail,
-      message: buildReservationNotification(payload),
-      botcheck: honeypotValue || '',
-      reservation_type: payload.reservation_type,
-      reservation_kind: payload.reservation_kind,
-      phone: payload.phone,
-      date: payload.date,
-      time: payload.time,
-      guests: payload.guests,
-      comment: payload.comment || '-'
+      ...payload,
+      botcheck: honeypotValue || ''
     })
   });
 
-  if (data.success === false) {
-    throw new Error(data.message || 'Email delivery failed');
-  }
-}
-
-async function sendReservationTelegram(payload) {
-  const url = `https://api.telegram.org/bot${RESERVATION_CONFIG.telegram.botToken}/sendMessage`;
-  const data = await fetchReservationJson(url, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      chat_id: RESERVATION_CONFIG.telegram.chatId,
-      text: buildReservationNotification(payload)
-    })
-  });
-
-  if (data.ok === false) {
-    throw new Error(data.description || 'Telegram delivery failed');
+  if (data.ok === false || data.success === false) {
+    throw new Error(data.message || 'Reservation delivery failed');
   }
 }
 
@@ -1695,10 +1645,7 @@ if (resForm) {
     submitBtn.disabled = true;
 
     try {
-      await Promise.all([
-        sendReservationEmail(payload, honeypotValue),
-        sendReservationTelegram(payload)
-      ]);
+      await sendReservationRequest(payload, honeypotValue);
 
       setReservationCooldown();
       resForm.reset();

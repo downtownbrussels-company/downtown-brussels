@@ -1,0 +1,9 @@
+{
+  "rewrites": [
+    { "source": "/blog", "destination": "/api/index" },
+    { "source": "/blog/:slug", "destination": "/api/index" },
+    { "source": "/admin", "destination": "/api/index" },
+    { "source": "/admin/:path*", "destination": "/api/index" },
+    { "source": "/api/reservations", "destination": "/api/index" }
+  ]
+}
