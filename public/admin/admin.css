@@ -236,6 +236,69 @@ body.admin-page {
   color: #fca5a5;
 }
 
+.admin-editor {
+  display: grid;
+  gap: 10px;
+}
+
+.admin-editor__toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.admin-editor__toolbar button {
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 10px;
+  background: rgba(12, 20, 39, 0.9);
+  color: var(--white);
+  font-size: 0.82rem;
+  padding: 8px 10px;
+}
+
+.admin-editor__toolbar button:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.admin-editor__surface {
+  min-height: 340px;
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  background: rgba(3, 8, 18, 0.92);
+  color: var(--white);
+  overflow: auto;
+}
+
+.admin-editor__surface:focus {
+  outline: 2px solid rgba(201, 168, 76, 0.45);
+  outline-offset: 2px;
+}
+
+.admin-editor__surface h1,
+.admin-editor__surface h2,
+.admin-editor__surface h3,
+.admin-editor__surface h4,
+.admin-editor__surface h5,
+.admin-editor__surface h6 {
+  font-family: var(--font-head);
+  margin: 0.9em 0 0.5em;
+}
+
+.admin-editor__surface p,
+.admin-editor__surface ul,
+.admin-editor__surface ol,
+.admin-editor__surface blockquote,
+.admin-editor__surface pre {
+  margin: 0 0 0.9em;
+}
+
+.admin-editor__surface a {
+  color: var(--gold-light);
+  text-decoration: underline;
+}
+
 .admin-form__actions {
   display: flex;
   align-items: center;

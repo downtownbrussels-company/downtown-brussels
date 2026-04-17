@@ -43,7 +43,7 @@ function getAlertFromQuery(req) {
 
 function redirectWithAlert(res, location, message, tone = 'success') {
   const search = new URLSearchParams({ message, tone });
-  res.redirect(`${location}?${search.toString()}`);
+  res.redirect(303, `${location}?${search.toString()}`);
 }
 
 router.get('/admin', (req, res) => {
@@ -94,8 +94,16 @@ router.get('/admin/dashboard', requireAdmin, asyncHandler(async (req, res) => {
 }));
 
 router.get('/admin/blogs', requireAdmin, asyncHandler(async (req, res) => {
-  const posts = await listAdminPosts();
-  res.send(renderDashboardPage(posts, getAlertFromQuery(req)));
+  const search = new URLSearchParams();
+  if (typeof req.query.message === 'string' && req.query.message) {
+    search.set('message', req.query.message);
+  }
+  if (typeof req.query.tone === 'string' && req.query.tone) {
+    search.set('tone', req.query.tone);
+  }
+
+  const suffix = search.toString();
+  res.redirect(303, suffix ? `/admin/dashboard?${suffix}` : '/admin/dashboard');
 }));
 
 router.get('/admin/blogs/new', requireAdmin, (_req, res) => {
@@ -133,7 +141,7 @@ router.post('/admin/blogs', requireAdmin, upload.single('cover_image_file'), asy
   }
 
   await createPost(values);
-  return redirectWithAlert(res, '/admin/blogs', 'Post created successfully.');
+  return redirectWithAlert(res, '/admin/dashboard', 'Post created successfully.');
 }));
 
 router.get('/admin/blogs/:id/edit', requireAdmin, asyncHandler(async (req, res, next) => {
@@ -183,7 +191,7 @@ router.post('/admin/blogs/:id', requireAdmin, upload.single('cover_image_file'),
     await deleteImage(existingPost.cover_image_public_id);
   }
 
-  return redirectWithAlert(res, '/admin/blogs', 'Post updated successfully.');
+  return redirectWithAlert(res, '/admin/dashboard', 'Post updated successfully.');
 }));
 
 router.post('/admin/blogs/:id/delete', requireAdmin, asyncHandler(async (req, res, next) => {
@@ -194,7 +202,7 @@ router.post('/admin/blogs/:id/delete', requireAdmin, asyncHandler(async (req, re
   if (post.cover_image_public_id) {
     await deleteImage(post.cover_image_public_id);
   }
-  return redirectWithAlert(res, '/admin/blogs', 'Post deleted successfully.');
+  return redirectWithAlert(res, '/admin/dashboard', 'Post deleted successfully.');
 }));
 
 router.post('/admin/blogs/:id/publish-toggle', requireAdmin, asyncHandler(async (req, res, next) => {
@@ -205,7 +213,7 @@ router.post('/admin/blogs/:id/publish-toggle', requireAdmin, asyncHandler(async 
     ? 'Post published successfully.'
     : 'Post moved back to draft.';
 
-  return redirectWithAlert(res, '/admin/blogs', message);
+  return redirectWithAlert(res, '/admin/dashboard', message);
 }));
 
 module.exports = router;

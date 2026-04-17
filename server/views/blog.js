@@ -3,7 +3,7 @@ const { formatDateOnly } = require('../utils/format');
 const { getImageSource } = require('../utils/files');
 const { renderLayout } = require('./layout');
 
-function renderBlogHeader({ subtitle, backHref = '/', backLabel = 'Back to Home' }) {
+function renderBlogHeader({ backHref = '/', backLabel = 'Back to Home' }) {
   return `
     <header class="blog-topbar">
       <div class="blog-topbar__line"></div>
@@ -15,14 +15,6 @@ function renderBlogHeader({ subtitle, backHref = '/', backLabel = 'Back to Home'
         <a class="blog-back-link" href="${backHref}">${escapeHtml(backLabel)}</a>
       </div>
     </header>
-    <section class="blog-hero">
-      <div class="blog-hero__overlay"></div>
-      <div class="blog-hero__content">
-        <span class="section-tag">DownTown Journal</span>
-        <h1 class="section-title">Stories, matchday notes, and Belgian beer picks.</h1>
-        <p class="section-subtitle">${escapeHtml(subtitle)}</p>
-      </div>
-    </section>
   `;
 }
 
@@ -59,15 +51,13 @@ function renderBlogListPage(posts) {
     extraStyles: ['/blog/blog.css'],
     content: `
       ${renderBlogHeader({
-        subtitle: 'Every post is published here first. The homepage stays focused on the venue experience.',
         backHref: '/',
         backLabel: 'Back to Home'
       })}
       <main class="blog-shell">
         <section class="blog-listing">
           <div class="blog-listing__header">
-            <h2>Published Posts</h2>
-            <p>Explore the latest articles from DownTown Brussels.</p>
+            <h2>Blog Posts</h2>
           </div>
           <div class="blog-grid">
             ${cards}
@@ -88,7 +78,6 @@ function renderBlogDetailPage(post) {
     ogImage: getImageSource(post.cover_image),
     content: `
       ${renderBlogHeader({
-        subtitle: 'Published articles live under /blog only, with SEO-ready detail pages.',
         backHref: '/blog',
         backLabel: 'Back to Blog'
       })}
@@ -100,7 +89,6 @@ function renderBlogDetailPage(post) {
           <div class="blog-post__body">
             <div class="blog-post__meta">
               <span>${escapeHtml(formatDateOnly(post.published_at || post.created_at))}</span>
-              <span>${escapeHtml(post.slug)}</span>
             </div>
             <h1 class="blog-post__title">${escapeHtml(post.title)}</h1>
             <div class="blog-post__content">
@@ -122,7 +110,6 @@ function renderNotFoundPage() {
     extraStyles: ['/blog/blog.css'],
     content: `
       ${renderBlogHeader({
-        subtitle: 'The requested page does not exist or is no longer available.',
         backHref: '/',
         backLabel: 'Back to Home'
       })}

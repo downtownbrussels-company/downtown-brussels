@@ -1,4 +1,4 @@
-const { escapeHtml, toTextAreaValue } = require('../utils/content');
+const { escapeHtml } = require('../utils/content');
 const { formatDateTime } = require('../utils/format');
 const { getImageSource } = require('../utils/files');
 const { renderLayout } = require('./layout');
@@ -169,7 +169,7 @@ function renderEditorPage({
     intro,
     message,
     messageTone: 'error',
-    actions: `<a class="admin-inline-link" href="/admin/blogs">Back to list</a>`,
+    actions: `<a class="admin-inline-link" href="/admin/dashboard">Back to list</a>`,
     content: `
       <section class="admin-card glass-card">
         <form class="admin-form admin-form--post" method="post" action="${formAction}" enctype="multipart/form-data" novalidate>
@@ -196,8 +196,24 @@ function renderEditorPage({
 
             <label class="admin-form__field admin-form__field--full">
               <span>Content</span>
-              <textarea name="content" rows="14" required>${escapeHtml(toTextAreaValue(post.content || ''))}</textarea>
-              <small class="admin-field-help">Plain text is supported. Basic HTML is also accepted and sanitized.</small>
+              <div class="admin-editor" data-rich-editor-root>
+                <div class="admin-editor__toolbar" role="toolbar" aria-label="Content formatting tools">
+                  <button type="button" data-editor-command="formatBlock" data-editor-value="P">Paragraph</button>
+                  <button type="button" data-editor-command="formatBlock" data-editor-value="H2">H2</button>
+                  <button type="button" data-editor-command="formatBlock" data-editor-value="H3">H3</button>
+                  <button type="button" data-editor-command="formatBlock" data-editor-value="H4">H4</button>
+                  <button type="button" data-editor-command="bold">Bold</button>
+                  <button type="button" data-editor-command="italic">Italic</button>
+                  <button type="button" data-editor-command="underline">Underline</button>
+                  <button type="button" data-editor-command="insertUnorderedList">Bullet List</button>
+                  <button type="button" data-editor-command="insertOrderedList">Numbered List</button>
+                  <button type="button" data-editor-command="createLink">Link</button>
+                  <button type="button" data-editor-command="removeFormat">Clear Format</button>
+                </div>
+                <div class="admin-editor__surface" contenteditable="true" data-rich-editor aria-label="Blog content editor"></div>
+                <textarea name="content" data-content-input hidden>${escapeHtml(post.content || '')}</textarea>
+              </div>
+              <small class="admin-field-help">Use headings, links, and lists. Content is sanitized automatically when you save.</small>
               ${errors.content ? `<small class="admin-field-error">${escapeHtml(errors.content)}</small>` : ''}
             </label>
 
@@ -239,7 +255,7 @@ function renderEditorPage({
 
           <div class="admin-form__actions">
             <button class="btn btn-primary" type="submit">${escapeHtml(submitLabel)}</button>
-            <a class="admin-inline-link" href="/admin/blogs">Cancel</a>
+            <a class="admin-inline-link" href="/admin/dashboard">Cancel</a>
           </div>
         </form>
       </section>
