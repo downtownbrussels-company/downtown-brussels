@@ -62,7 +62,7 @@ router.post('/admin/login', loginLimiter, (req, res) => {
 
   if (!safeCompare(username, env.adminUsername) || !safeCompare(password, env.adminPassword)) {
     const query = new URLSearchParams({ error: 'Invalid username or password.' });
-    return res.redirect(`/admin?${query.toString()}`);
+    return res.redirect(303, `/admin?${query.toString()}`);
   }
 
   const token = createAdminToken();
@@ -74,7 +74,7 @@ router.post('/admin/login', loginLimiter, (req, res) => {
     path: '/'
   });
 
-  return res.redirect('/admin/dashboard');
+  return res.redirect(303, '/admin/dashboard');
 });
 
 router.post('/admin/logout', (_req, res) => {
@@ -85,7 +85,7 @@ router.post('/admin/logout', (_req, res) => {
     path: '/'
   });
 
-  res.redirect('/admin');
+  res.redirect(303, '/admin');
 });
 
 router.get('/admin/dashboard', requireAdmin, asyncHandler(async (req, res) => {
