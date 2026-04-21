@@ -10,9 +10,24 @@ function asyncHandler(handler) {
   return (req, res, next) => Promise.resolve(handler(req, res, next)).catch(next);
 }
 
-function buildAbsoluteUrl(pathname = '/') {
+function resolveBaseUrl(req) {
+  const configuredBaseUrl = (env.siteUrl || '').replace(/\/+$/, '');
+  const isLocalConfigured = /^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/i.test(configuredBaseUrl);
+
+  if (configuredBaseUrl && !isLocalConfigured) {
+    return configuredBaseUrl;
+  }
+
+  const forwardedProto = String(req.headers['x-forwarded-proto'] || '').split(',')[0].trim();
+  const protocol = forwardedProto || req.protocol || 'https';
+  const host = req.get('x-forwarded-host') || req.get('host') || '';
+
+  return host ? `${protocol}://${host}`.replace(/\/+$/, '') : configuredBaseUrl;
+}
+
+function buildAbsoluteUrl(req, pathname = '/') {
   const normalized = pathname.startsWith('/') ? pathname : `/${pathname}`;
-  return `${env.siteUrl}${normalized}`;
+  return `${resolveBaseUrl(req)}${normalized}`;
 }
 
 function toIsoDate(value) {
@@ -51,7 +66,7 @@ router.get('/blog/:slug', asyncHandler(async (req, res, next) => {
   return res.send(renderBlogDetailPage(post));
 }));
 
-router.get('/sitemap.xml', asyncHandler(async (_req, res) => {
+router.get('/sitemap.xml', asyncHandler(async (req, res) => {
   const posts = await listPublishedPosts();
   const latestPostDate = posts.length
     ? posts[0].updated_at || posts[0].published_at || posts[0].created_at
@@ -59,13 +74,13 @@ router.get('/sitemap.xml', asyncHandler(async (_req, res) => {
 
   const staticEntries = [
     {
-      loc: buildAbsoluteUrl('/'),
+      loc: buildAbsoluteUrl(req, '/'),
       lastmod: toIsoDate(latestPostDate || Date.now()),
       changefreq: 'weekly',
       priority: '1.0'
     },
     {
-      loc: buildAbsoluteUrl('/blog'),
+      loc: buildAbsoluteUrl(req, '/blog'),
       lastmod: toIsoDate(latestPostDate || Date.now()),
       changefreq: 'daily',
       priority: '0.9'
@@ -73,7 +88,7 @@ router.get('/sitemap.xml', asyncHandler(async (_req, res) => {
   ];
 
   const postEntries = posts.map((post) => ({
-    loc: buildAbsoluteUrl(`/blog/${encodeURIComponent(post.slug)}`),
+    loc: buildAbsoluteUrl(req, `/blog/${encodeURIComponent(post.slug)}`),
     lastmod: toIsoDate(post.updated_at || post.published_at || post.created_at),
     changefreq: 'weekly',
     priority: '0.8'
@@ -96,12 +111,12 @@ router.get('/sitemap.xml', asyncHandler(async (_req, res) => {
   res.send(xml);
 }));
 
-router.get('/robots.txt', (_req, res) => {
+router.get('/robots.txt', (req, res) => {
   const robots = [
     'User-agent: *',
     'Allow: /',
     'Disallow: /admin',
-    `Sitemap: ${buildAbsoluteUrl('/sitemap.xml')}`
+    `Sitemap: ${buildAbsoluteUrl(req, '/sitemap.xml')}`
   ].join('\n');
 
   res.set('Content-Type', 'text/plain; charset=utf-8');
