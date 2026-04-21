@@ -1,0 +1,13 @@
+# robots.txt for DownTown Brussels
+# Helps search engines index the site quickly
+
+User-agent: *
+Allow: /
+
+# Prevent indexing of internal or admin pages (if you have them)
+Disallow: /admin/
+Disallow: /wp-admin/
+Disallow: /private/
+
+# Tell search engines where to find all your pages and blogs
+Sitemap: https://www.downtown-brussels.com/sitemap.xml
