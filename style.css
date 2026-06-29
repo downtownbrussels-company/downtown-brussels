@@ -3400,20 +3400,36 @@ body.modal-open {
   display: flex;
   align-items: center;
   gap: 8px;
+  min-width: 0;
 }
 
 .team-lockup {
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  min-width: 0;
+  white-space: nowrap;
 }
 
 .team-flag {
+  display: block;
+  flex: 0 0 20px;
   width: 20px;
-  height: auto;
+  height: 20px;
+  min-width: 20px;
+  min-height: 20px;
   border-radius: 2px;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+  object-fit: contain;
   vertical-align: middle;
+}
+
+.team-flag--featured {
+  flex-basis: 24px;
+  width: 24px;
+  height: 24px;
+  min-width: 24px;
+  min-height: 24px;
 }
 
 .match-vs {
@@ -4127,6 +4143,8 @@ body.modal-open {
   display: flex;
   align-items: center;
   gap: 6px;
+  min-width: 0;
+  flex-wrap: wrap;
 }
 
 .mini-time {

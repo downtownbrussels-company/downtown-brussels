@@ -670,8 +670,10 @@ const teamLogos = {
   'X': 'https://flagcdn.com/un.svg'
 };
 
+const TEAM_LOGO_FALLBACK = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"%3E%3Crect width="20" height="20" rx="4" fill="%230d1731"/%3E%3Cpath d="M10 3l4.5 1.8v4.1c0 3.2-1.9 5.9-4.5 7.1C7.4 14.8 5.5 12.1 5.5 8.9V4.8L10 3z" fill="%2300b4ff" fill-opacity=".22" stroke="%2300b4ff" stroke-width="1.1"/%3E%3C/svg%3E';
+
 function getLogo(teamName) {
-  return teamLogos[teamName] || '';
+  return teamLogos[teamName] || TEAM_LOGO_FALLBACK;
 }
 
 // =============================================
@@ -924,9 +926,9 @@ function renderMatchCard(event, compact = false) {
     return `
       <div class="mini-match ${status === 'live' ? 'live-match' : ''}">
         <span class="mini-teams">
-          <img src="${logoA}" class="team-flag" alt="${event.home} logo"> 
+          <img src="${logoA}" class="team-flag" width="20" height="20" alt="${event.home} logo" onerror="this.onerror=null;this.src='${TEAM_LOGO_FALLBACK}'"> 
           ${event.home} vs 
-          <img src="${logoB}" class="team-flag" alt="${event.away} logo">
+          <img src="${logoB}" class="team-flag" width="20" height="20" alt="${event.away} logo" onerror="this.onerror=null;this.src='${TEAM_LOGO_FALLBACK}'">
           ${event.away}
         </span>
         <span class="mini-time">${event.time}</span>
@@ -938,12 +940,12 @@ function renderMatchCard(event, compact = false) {
     <div class="match-card ${status === 'live' ? 'live-match' : ''}">
       <div class="match-teams">
         <span class="team-lockup">
-          <img src="${logoA}" class="team-flag" alt="${event.home} logo">
+          <img src="${logoA}" class="team-flag" width="20" height="20" alt="${event.home} logo" onerror="this.onerror=null;this.src='${TEAM_LOGO_FALLBACK}'">
           <span>${event.home}</span>
         </span>
         <span class="match-vs">vs</span>
         <span class="team-lockup">
-          <img src="${logoB}" class="team-flag" alt="${event.away} logo">
+          <img src="${logoB}" class="team-flag" width="20" height="20" alt="${event.away} logo" onerror="this.onerror=null;this.src='${TEAM_LOGO_FALLBACK}'">
           <span>${event.away}</span>
         </span>
       </div>
@@ -1082,9 +1084,9 @@ function renderLiveGames() {
     lmdEl.innerHTML = `
         <div class="lmd-label">${statusLabel}</div>
         <div class="lmd-teams">
-          <img src="${logoA}" class="team-flag" style="width:24px;" alt="${featured.home} logo">
+          <img src="${logoA}" class="team-flag team-flag--featured" width="24" height="24" alt="${featured.home} logo" onerror="this.onerror=null;this.src='${TEAM_LOGO_FALLBACK}'">
           ${featured.home} vs 
-          <img src="${logoB}" class="team-flag" style="width:24px;" alt="${featured.away} logo">
+          <img src="${logoB}" class="team-flag team-flag--featured" width="24" height="24" alt="${featured.away} logo" onerror="this.onerror=null;this.src='${TEAM_LOGO_FALLBACK}'">
           ${featured.away}
         </div>
         <div class="lmd-time">Time ${featured.time} (Belgium) • ${new Date(`${featured.date}T12:00:00`).toLocaleDateString(currentLang, { day: 'numeric', month: 'short', timeZone: "Europe/Brussels" })}</div>
@@ -1105,7 +1107,7 @@ function renderLiveGames() {
 const reservationModal = document.getElementById('reservation-modal');
 const reservationModalDialog = reservationModal ? reservationModal.querySelector('.reservation-modal__dialog') : null;
 const reservationModalClose = document.getElementById('reservation-modal-close');
-const reservationTriggers = document.querySelectorAll('a[href="#reservations"]');
+const reservationTriggers = document.querySelectorAll('a[href="https://reservations.downtown-brussels.com/"]');
 const galleryLightbox = document.getElementById('gallery-lightbox');
 const galleryLightboxDialog = galleryLightbox ? galleryLightbox.querySelector('.gallery-lightbox__dialog') : null;
 const galleryLightboxImage = document.getElementById('gallery-lightbox-image');
@@ -1921,7 +1923,7 @@ function createParticles() {
 // =============================================
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
-    if (a.getAttribute('href') === '#reservations') return;
+    if (a.getAttribute('href') === 'https://reservations.downtown-brussels.com/') return;
     const target = document.querySelector(a.getAttribute('href'));
     if (target) {
       e.preventDefault();
