@@ -605,6 +605,10 @@ const allMatches = [
   { competition: 'FIFA World Cup 2026', stage: 'Group Stage', home: 'Senegal', away: 'X', date: '2026-06-26', time: '21:00' },
   { competition: 'FIFA World Cup 2026', stage: 'Group Stage', home: 'Panama', away: 'England', date: '2026-06-27', time: '23:00' },
   { competition: 'FIFA World Cup 2026', stage: 'Group Stage', home: 'Croatia', away: 'Ghana', date: '2026-06-27', time: '23:00' },
+  { competition: 'FIFA World Cup 2026', stage: 'Group Stage', home: 'France', away: 'Spain', date: '2026-07-14', time: '21:00' },
+  { competition: 'FIFA World Cup 2026', stage: 'Group Stage', home: 'Argentina', away: 'England', date: '2026-07-15', time: '21:00' },
+
+
 ];
 
 const teamLogos = {
