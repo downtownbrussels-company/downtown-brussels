@@ -1,4 +1,4 @@
-﻿/* =============================================
+/* =============================================
    DOWNTOWN BRUSSELS — script.js
    Multilingual | Events Logic | Interactions
    ============================================= */
@@ -112,6 +112,18 @@ const translations = {
     about_tag: 'Our Story', about_title: 'About DownTown',
     gallery_tag: 'Inside DownTown', gallery_title: 'Gallery',
     gallery_subtitle: 'Step into the glow of DownTown through signature cocktails, polished bar details, and the late-night mood that makes every round feel cinematic.',
+    gallery_img_1: 'Guest cheering excitedly inside DownTown bar',
+    gallery_img_2: 'Guests watching sports match inside DownTown',
+    gallery_img_3: 'Atmospheric night vibe at DownTown bar',
+    gallery_img_4: 'Vibrant party celebration at DownTown bar',
+    gallery_img_5: 'Live sports match broadcast on multiple TV screens',
+    gallery_img_6: 'Football fans celebrating victory at DownTown',
+    gallery_img_7: 'Excited fans watching game at DownTown bar',
+    gallery_img_8: 'Guests enjoying evening drinks at DownTown Brussels',
+    gallery_img_9: 'Guests enjoying drinks on DownTown outdoor terrace',
+    gallery_img_10: 'Packed house cheering for sports match',
+    gallery_img_11: 'Live DJ session on DownTown outdoor terrace',
+    gallery_img_12: 'Lively afternoon on DownTown Brussels terrace',
     about_p1: 'DownTown Brussels is a vibrant sport bar in the heart of Brussels city centre, just steps away from Place de la Bourse and the iconic Grand Place.',
     about_p2: 'Watch all major live games on big screens, from football to tennis and rugby, in a lively atmosphere, with Belgian beer on tap and great music to complete the experience.',
     about_p3: 'Whether you\'re here to catch the big game, share a tasting board with friends, or simply unwind with a cold Belgian after work — DownTown is your place.',
@@ -325,6 +337,18 @@ const translations = {
     faq_tag: 'Questions Fréquentes', faq_title: 'FAQ',
     gallery_tag: 'À l\'intérieur du centre-ville', gallery_title: 'Galerie',
     gallery_subtitle: 'Plongez dans l’ambiance lumineuse de Downtown à travers des cocktails signature, des détails de bar soignés et une atmosphère nocturne où chaque tournée devient cinématographique.',
+    gallery_img_1: 'Client célébrant dans l\'ambiance chaleureuse du bar DownTown',
+    gallery_img_2: 'Clients captivés par le match sportif chez DownTown',
+    gallery_img_3: 'Atmosphère nocturne et chaleureuse au bar DownTown',
+    gallery_img_4: 'Ambiance de fête survoltée au bar DownTown',
+    gallery_img_5: 'Diffusion de matchs en direct sur grands écrans HD',
+    gallery_img_6: 'Supporters de football célébrant la victoire chez DownTown',
+    gallery_img_7: 'Supporters passionnés devant le match au bar DownTown',
+    gallery_img_8: 'Clients profitant d\'un verre en soirée au DownTown Bruxelles',
+    gallery_img_9: 'Clients installés en terrasse extérieure au DownTown',
+    gallery_img_10: 'Salle comble célébrant un match en direct',
+    gallery_img_11: 'Session DJ en direct sur la terrasse du DownTown',
+    gallery_img_12: 'Après-midi animée sur la terrasse du DownTown Bruxelles',
     faq_subtitle: 'Tout ce que vous pouvez vouloir savoir avant votre prochaine soirée chez DownTown.',
     faq: [
       {
@@ -488,6 +512,18 @@ const translations = {
     faq_tag: 'Veelgestelde Vragen', faq_title: 'FAQ',
     gallery_tag: 'In het stadscentrum', gallery_title: 'Galerij',
     gallery_subtitle: 'Stap in de gloed van Downtown met signature cocktails, verfijnde bardetails en een nachtelijke sfeer waarin elke ronde filmisch aanvoelt.',
+    gallery_img_1: 'Enthousiaste gast in de gezellige sfeer van bar DownTown',
+    gallery_img_2: 'Gasten die vol spanning naar de sportwedstrijd kijken',
+    gallery_img_3: 'Sfeervolle avond in de bar van DownTown',
+    gallery_img_4: 'Bruisend feest en geweldige sfeer bij DownTown',
+    gallery_img_5: 'Live sportwedstrijden op meerdere HD-schermen',
+    gallery_img_6: 'Voetbalfans die de overwinning vieren bij DownTown',
+    gallery_img_7: 'Enthousiaste fans tijdens de live wedstrijd',
+    gallery_img_8: 'Gasten genieten van een drankje bij DownTown Brussel',
+    gallery_img_9: 'Gasten genieten van het terras van DownTown',
+    gallery_img_10: 'Vol Huis juicht voor de live sportwedstrijd',
+    gallery_img_11: 'Live DJ-set op het terras van DownTown',
+    gallery_img_12: 'Levendige namiddag op het terras van DownTown Brussel',
     faq_subtitle: 'Alles wat je vooraf wilt weten voor je volgende avond bij DownTown.',
     faq: [
       {
@@ -703,6 +739,10 @@ function applyTranslations(lang) {
     const key = el.getAttribute('data-i18n-placeholder');
     if (t[key] !== undefined) el.setAttribute('placeholder', t[key]);
   });
+  document.querySelectorAll('[data-i18n-alt]').forEach(el => {
+    const key = el.getAttribute('data-i18n-alt');
+    if (t[key] !== undefined) el.setAttribute('alt', t[key]);
+  });
   document.documentElement.lang = lang;
 }
 
@@ -734,6 +774,9 @@ function setLanguage(lang) {
   renderFAQ();
   renderEvents();
   renderLiveGames();
+  if (galleryLightbox && galleryLightbox.classList.contains('is-open')) {
+    syncGalleryLightbox(activeGalleryIndex);
+  }
 }
 
 document.querySelectorAll('.lang-btn').forEach(btn => {
@@ -1169,13 +1212,18 @@ function syncGalleryLightbox(index) {
 
   const normalizedIndex = (index + galleryItems.length) % galleryItems.length;
   const activeItem = galleryItems[normalizedIndex];
-  const activeImage = activeItem.querySelector('img');
+  const activeImage = activeItem ? activeItem.querySelector('img') : null;
   if (!activeImage) return;
 
   activeGalleryIndex = normalizedIndex;
   galleryLightboxImage.src = activeImage.currentSrc || activeImage.src;
-  galleryLightboxImage.alt = activeImage.alt;
-  if (galleryLightboxTitle) galleryLightboxTitle.textContent = activeImage.alt;
+
+  const altKey = activeImage.getAttribute('data-i18n-alt');
+  const t = translations[currentLang] || translations.en;
+  const displayTitle = (altKey && t[altKey] !== undefined) ? t[altKey] : activeImage.alt;
+
+  galleryLightboxImage.alt = displayTitle;
+  if (galleryLightboxTitle) galleryLightboxTitle.textContent = displayTitle;
   if (galleryLightboxCounter) galleryLightboxCounter.textContent = `${normalizedIndex + 1} / ${galleryItems.length}`;
 }
 
