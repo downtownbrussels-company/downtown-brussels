@@ -974,9 +974,10 @@ function renderMatchCard(event, compact = false) {
       <div class="mini-match ${status === 'live' ? 'live-match' : ''}">
         <span class="mini-teams">
           <img src="${logoA}" class="team-flag" width="20" height="20" alt="${event.home} logo" onerror="this.onerror=null;this.src='${TEAM_LOGO_FALLBACK}'"> 
-          ${event.home} vs 
+          <span>${event.home}</span>
+          <span class="match-vs">vs</span>
           <img src="${logoB}" class="team-flag" width="20" height="20" alt="${event.away} logo" onerror="this.onerror=null;this.src='${TEAM_LOGO_FALLBACK}'">
-          ${event.away}
+          <span>${event.away}</span>
         </span>
         <span class="mini-time">${event.time}</span>
         <span class="match-status ${statusClasses[status]}">${statusLabels[status]}</span>
@@ -985,22 +986,24 @@ function renderMatchCard(event, compact = false) {
 
   return `
     <div class="match-card ${status === 'live' ? 'live-match' : ''}">
-      <div class="match-teams">
-        <span class="team-lockup">
-          <img src="${logoA}" class="team-flag" width="20" height="20" alt="${event.home} logo" onerror="this.onerror=null;this.src='${TEAM_LOGO_FALLBACK}'">
-          <span>${event.home}</span>
-        </span>
-        <span class="match-vs">vs</span>
-        <span class="team-lockup">
-          <img src="${logoB}" class="team-flag" width="20" height="20" alt="${event.away} logo" onerror="this.onerror=null;this.src='${TEAM_LOGO_FALLBACK}'">
-          <span>${event.away}</span>
-        </span>
+      <div class="match-info">
+        <div class="match-teams">
+          <span class="team-lockup team-lockup--home">
+            <img src="${logoA}" class="team-flag" width="22" height="22" alt="${event.home} logo" onerror="this.onerror=null;this.src='${TEAM_LOGO_FALLBACK}'">
+            <span class="team-name">${event.home}</span>
+          </span>
+          <span class="match-vs">vs</span>
+          <span class="team-lockup team-lockup--away">
+            <img src="${logoB}" class="team-flag" width="22" height="22" alt="${event.away} logo" onerror="this.onerror=null;this.src='${TEAM_LOGO_FALLBACK}'">
+            <span class="team-name">${event.away}</span>
+          </span>
+        </div>
+        <div class="match-stage">${event.stage}</div>
       </div>
-      <div class="match-meta-info" style="display: flex; align-items: center; gap: 15px;">
-        <div class="match-stage" style="font-size:0.85rem; color:var(--white-70); text-transform: uppercase; letter-spacing: 0.05em;">${event.stage}</div>
+      <div class="match-details">
         <div class="match-time">${event.time}</div>
+        <div class="match-status ${statusClasses[status]}">${statusLabels[status]}</div>
       </div>
-      <div class="match-status ${statusClasses[status]}">${statusLabels[status]}</div>
     </div>`;
 }
 

@@ -1,4 +1,4 @@
-﻿/* =============================================
+/* =============================================
    DOWNTOWN BRUSSELS — style.css
    Blue Neon + Luxury Bar Hybrid
    ============================================= */
@@ -3391,15 +3391,23 @@ body.modal-open {
   background: linear-gradient(180deg, #ff4444, #ff8888);
 }
 
+.match-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+  min-width: 0;
+}
+
 .match-teams {
   font-family: var(--font-head);
-  font-size: 1.3rem;
+  font-size: 1.25rem;
   font-weight: 700;
-  letter-spacing: 0.06em;
-  flex: 1;
+  letter-spacing: 0.04em;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
+  flex-wrap: wrap;
   min-width: 0;
 }
 
@@ -3408,18 +3416,25 @@ body.modal-open {
   align-items: center;
   gap: 8px;
   min-width: 0;
+  flex-shrink: 0;
+}
+
+.team-name {
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 220px;
 }
 
 .team-flag {
   display: block;
-  flex: 0 0 20px;
-  width: 20px;
-  height: 20px;
-  min-width: 20px;
-  min-height: 20px;
-  border-radius: 2px;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+  flex: 0 0 22px;
+  width: 22px;
+  height: 22px;
+  min-width: 22px;
+  min-height: 22px;
+  border-radius: 3px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
   object-fit: contain;
   vertical-align: middle;
 }
@@ -3434,19 +3449,39 @@ body.modal-open {
 
 .match-vs {
   color: var(--white-40);
-  margin: 0 8px;
-  font-size: 0.9rem;
-  font-weight: 400;
+  margin: 0 4px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-transform: lowercase;
+  flex-shrink: 0;
+}
+
+.match-stage {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--white-60);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.match-details {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-shrink: 0;
 }
 
 .match-time {
   font-family: var(--font-head);
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: 700;
   color: var(--neon-blue);
-  background: rgba(0, 180, 255, 0.1);
+  background: rgba(0, 180, 255, 0.08);
   border: 1px solid var(--border);
-  padding: 6px 16px;
+  padding: 6px 14px;
   border-radius: 8px;
   white-space: nowrap;
 }
@@ -3456,8 +3491,9 @@ body.modal-open {
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  padding: 4px 12px;
+  padding: 5px 14px;
   border-radius: 20px;
+  white-space: nowrap;
 }
 
 .status-live {
@@ -5884,9 +5920,32 @@ body.modal-open {
   }
 
   .match-card {
-    flex-wrap: wrap;
-    gap: 10px;
-    padding: 16px 20px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    padding: 16px 18px;
+  }
+
+  .match-info {
+    width: 100%;
+  }
+
+  .match-teams {
+    font-size: 1.1rem;
+    gap: 8px;
+  }
+
+  .team-name {
+    max-width: 140px;
+  }
+
+  .match-details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding-top: 10px;
   }
 
   .gallery-shell {
@@ -5939,9 +5998,6 @@ body.modal-open {
     height: 44px;
   }
 
-  .match-teams {
-    font-size: 1.1rem;
-  }
 
   .footer-grid {
     grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
